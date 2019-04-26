@@ -35,7 +35,7 @@ public class App
                 " when 1505 then 'лист заказов постоянного покупателя'" +
                 " when 1506 then 'лист заказов возврат от партнера (дистрибьютор, ПП и др.)'" +
                 " when 1507 then 'лист заказов по рецепту врача'" +
-                " when 1508 then 'лист заказов при подписании нового дистрибьютора по проекту " +
+                " when 1508 then 'лист заказов при подписании нового дистрибьютора по проекту'" +
                 " when 1509 then 'лист заказов на приём китайского специалиста'" +
                 " when 1510 then 'лист заказов на клиента'" +
                 " end  doc_name," +
@@ -55,9 +55,8 @@ public class App
                 " group by ord.Markup,br.name,dh.dtype,g.name" +
                 " order by dh.dtype,br.name)" +
                 " group by discount,name,doc_name" +
-                " order by discount DESC)";
+                " order by discount DESC";
 
-        System.out.println( "Hello World!" );
         try {
             Class.forName("org.firebirdsql.jdbc.FBDriver");
             Connection con= DriverManager.getConnection( conString,paramConnection);
@@ -69,6 +68,7 @@ public class App
                 System.out.print("|Процент|"+ res.getString("discount"));
                 System.out.print("|Сумма без скидки|"+ res.getString("sumdiscount"));
                 System.out.print("|Сумма|"+ res.getString("sumfull"));
+                System.out.println();
             }
         } catch (Exception e) {
             System.out.println(e);
