@@ -1,0 +1,10 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+    <servlet>
+        <servlet-name>servlet</servlet-name>
+        <servlet-class>ru.liwest.report.servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet</servlet-name>
+        <url-pattern>/report</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -8,8 +8,6 @@ import java.util.Properties;
  */
 public class App 
 {
-
-
     public static void main( String[] args )
     {
         String conString = "jdbc:firebirdsql:lao:F:\\test\\02\\LiWest.fdb";
@@ -62,13 +60,15 @@ public class App
             Connection con= DriverManager.getConnection( conString,paramConnection);
             Statement stm= con.createStatement();
             ResultSet res= stm.executeQuery(sqlString);
+            System.out.println("ИСЦ|Документ|Процент|Сумма без скидки|Сумма|");
+            System.out.println("----------------------------------------------");
             while (res.next()) {
-                System.out.print("ИСЦ|"+ res.getString("name"));
-                System.out.print("|Документ|"+ res.getString("doc_name"));
-                System.out.print("|Процент|"+ res.getString("discount"));
-                System.out.print("|Сумма без скидки|"+ res.getString("sumdiscount"));
-                System.out.print("|Сумма|"+ res.getString("sumfull"));
-                System.out.println();
+                   System.out.print(res.getString("name")+'|');
+                   System.out.print(res.getString("doc_name")+'|');
+                   System.out.print(res.getString("discount")+'|');
+                   System.out.print(res.getString("sumdiscount")+'|');
+                   System.out.println(res.getString("sumfull")+'|');
+                   System.out.println("---------------------------------------------------------------------------------------------------------------------");
             }
         } catch (Exception e) {
             System.out.println(e);
